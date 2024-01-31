@@ -20,8 +20,8 @@ export interface IProductsData {
 }
 
 export interface IPriceFilter {
-  min: number;
-  max: number;
+  min: string;
+  max: string;
 }
 
 export interface IProductFilters {
