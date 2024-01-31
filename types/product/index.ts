@@ -30,4 +30,5 @@ export interface IProductFilters {
 }
 export interface IProductState extends IProductsData {
   filters: IProductFilters | null;
+  loading: boolean;
 }
