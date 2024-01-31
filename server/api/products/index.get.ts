@@ -6,8 +6,8 @@ import type { IProductsData } from '~~/types/product';
 export default defineEventHandler(async (event: H3Event): Promise<H3Error | IProductsData> => {
   const query = getQuery(event);
   const LIMIT = Number(query.limit) || PostLimitEnum.DEFAULT;
-  const { queryPrice, ...allQuery } = query;
-  const parsePrice = String(queryPrice).split('-');
+  const { price, ...allQuery } = query;
+  const parsePrice = String(price).split('-');
   const minPrice = Number(parsePrice[0]) || 0;
   const maxPrice = Number(parsePrice[1]) || +Infinity;
   try {
