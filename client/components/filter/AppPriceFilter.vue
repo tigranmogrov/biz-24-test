@@ -1,24 +1,22 @@
 <script setup lang="ts">
-interface IPrice {
-  min: number;
-  max: number;
-}
+import type { IPriceFilter } from '~~/types/product';
+
 const props = defineProps<{
-  price: IPrice;
+  price: IPriceFilter;
 }>();
 
 const router = useRouter();
 const route = useRoute();
 const queryPrice = String(route.query.price).split('-');
 
-const currentPrice = reactive<IPrice>({
+const currentPrice = reactive<IPriceFilter>({
   min: (route.query.price && Number(queryPrice[0])) || props.price.min,
   max: (route.query.price && Number(queryPrice[1])) || props.price.max,
 });
 
 const setValue = (event: Event) => {
   const { name, value } = event.target as HTMLInputElement;
-  currentPrice[name as keyof IPrice] = Number(value);
+  currentPrice[name as keyof IPriceFilter] = Number(value);
 };
 const setPrice = () => {
   router.push({
