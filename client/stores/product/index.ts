@@ -10,7 +10,7 @@ export const useProductStore = defineStore('product', {
       totalPage: null,
       products: [],
       filters: null,
-      loading: false,
+      loading: true,
     };
   },
 
@@ -21,7 +21,6 @@ export const useProductStore = defineStore('product', {
   actions: {
     async fetchProducts(query: QueryObject) {
       try {
-        this.loading = true;
         const data = await $fetch<IProductsData>('/api/products', {
           query: {
             ...query,
