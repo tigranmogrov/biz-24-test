@@ -1,3 +1,16 @@
+# Примечание 
+
+```
+Не усложнял логику, знаю что можно было категории тоже сделать отдельной страницей 
+Не создавал Route [create], так как не было этого в ТЗ
+Можно было создать пагинацию и обработать этот кейс
+UI -- Tailwind
+База данных -- MongoDB 
+ODM Mongoose
+Использывал для запросов -- Postman
+
+```
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
