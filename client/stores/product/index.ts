@@ -16,6 +16,7 @@ export const useProductStore = defineStore('product', {
 
   getters: {
     getProducts: (state: IProductState) => state.products,
+    getProductFilters: (state: IProductState) => state.filters,
   },
   actions: {
     async fetchProducts(query: QueryObject) {
@@ -33,6 +34,14 @@ export const useProductStore = defineStore('product', {
         console.error('Error fetching data:', error);
       } finally {
         this.loading = false;
+      }
+    },
+    async fetchProductFilters() {
+      try {
+        const data = await $fetch<Pick<IProductState, 'filters'>>('/api/products/filters');
+        this.filters = data.filters;
+      } catch (e) {
+        console.log(e);
       }
     },
   },
