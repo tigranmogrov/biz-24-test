@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "vue-eslint-parser",
+
+  "extends": [
+    "eslint:recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:prettier/recommended",
+    "@nuxt/eslint-config",
+    "prettier"
+  ],
+  "plugins": [
+    "eslint-plugin-prettier",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": 0,
+    "import/order": 0,
+    "max-len": [
+      0,
+      120,
+      0,
+      {
+        "ignoreUrls": true
+      }
+    ],
+    "no-console": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/one-component-per-file": "off",
+    "vue/require-default-prop": "off",
+    "vue/no-multiple-template-root": "off",
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-param": "off",
+    "jsdoc/require-returns": "off",
+    "jsdoc/require-param-type": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-useless-constructor": "off",
+    "vue/html-indent": [
+      "error",
+      2
+    ],
+    "vue/singleline-html-element-content-newline": 0,
+    "vue/component-name-in-template-casing": [
+      "error",
+      "kebab-case"
+    ],
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        "singleline": "never",
+        "multiline": "never"
+      }
+    ],
+    "vue/valid-v-slot": [
+      "error",
+      {
+        "allowModifiers": true
+      }
+    ]
+  }
+}
