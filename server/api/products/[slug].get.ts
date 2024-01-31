@@ -3,7 +3,7 @@ import { ProductErrorEnum } from '~~/enum/errors.enum';
 import { Product } from '~~/server/api/products/product.model';
 import { IProduct } from '~~/types/product';
 
-export default defineEventHandler(async (event: H3Event): Promise<H3Error | { product: IProduct }> => {
+export default defineEventHandler(async (event: H3Event): Promise<H3Error | IProduct> => {
   const routeSlug = event.context.params?.slug;
   try {
     const product = await Product.find({ slug: routeSlug }).exec();
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event: H3Event): Promise<H3Error | { pr
         status: 404,
       });
     }
-    return { product: product[0] };
+    return product[0];
   } catch (error: any) {
     return createError({
       message: error.message,
