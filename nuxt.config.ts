@@ -11,7 +11,6 @@ export default defineNuxtConfig({
       },
     ],
     '@nuxtjs/tailwindcss',
-    '@nuxt/image',
   ],
   nitro: {
     plugins: ['../server/db/index.ts'],
