@@ -13,6 +13,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
   ],
+  nitro: {
+    plugins: ['../server/db/index.ts'],
+  },
   runtimeConfig: {
     mongodbUri: process.env.MONGODB_URI,
     mongodbName: process.env.DATABASE_NAME,
