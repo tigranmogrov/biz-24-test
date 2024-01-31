@@ -54,7 +54,7 @@ const changeRouteQuery = (val: Event) => {
 <template>
   <div class="w-full">
     <div class="flex items-center">
-      <label class="w-full flex items-center gap-2 p-3 text-sm font-medium cursor-pointer">
+      <label class="w-full flex items-center gap-2 py-1 mx-3 text-sm font-medium cursor-pointer">
         <input
           type="checkbox"
           :value="attribute"
