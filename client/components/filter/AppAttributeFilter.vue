@@ -8,11 +8,10 @@ const props = defineProps<{
 const router = useRouter();
 const route = useRoute();
 const getQuery = computed(() => route.query);
-const isChecked = computed(() => getIsChecked());
 
 const getIsChecked = (): boolean => {
   const isArrayQuery = Array.isArray(getQuery.value[props.filterName]) && getQuery.value[props.filterName];
-  const isStringQuery = getQuery.value[props.filterName] === props.attribute;
+  const isStringQuery = getQuery.value[props.filterName] === String(props.attribute);
   if (isArrayQuery) {
     return isArrayQuery.includes(String(props.attribute));
   } else {
@@ -49,6 +48,8 @@ const changeRouteQuery = (val: Event) => {
     removeQuery(name, value, oldValue, currentValue);
   }
 };
+
+const isChecked = computed(() => getIsChecked());
 </script>
 
 <template>
