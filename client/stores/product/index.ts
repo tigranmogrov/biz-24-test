@@ -1,7 +1,7 @@
 import { $fetch } from 'ofetch';
 import { defineStore } from 'pinia';
 import type { QueryObject } from 'ufo';
-import type { IProductState, IProductsData } from '~~/types/product';
+import type { IProduct, IProductFilters, IProductState, IProductsData } from '~~/types/product';
 
 export const useProductStore = defineStore('product', {
   state: (): IProductState => {
@@ -15,8 +15,8 @@ export const useProductStore = defineStore('product', {
   },
 
   getters: {
-    getProducts: (state: IProductState) => state.products,
-    getProductFilters: (state: IProductState) => state.filters,
+    getProducts: (state: IProductState): IProduct[] => state.products,
+    getProductFilters: (state: IProductState): IProductFilters | null => state.filters,
   },
   actions: {
     async fetchProducts(query: QueryObject) {
