@@ -9,7 +9,7 @@ definePageMeta({
 const route = useRoute();
 const slug = route.params.slug;
 
-const { data: product, status, error, pending } = useFetch<IProduct>(`/api/products/${slug}`);
+const { data: product, pending } = useFetch<IProduct>(`/api/products/${slug}`);
 </script>
 
 <template>
@@ -59,19 +59,6 @@ const { data: product, status, error, pending } = useFetch<IProduct>(`/api/produ
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div v-if="error && status === 'error'">
-      <h2 class="text-2xl text-red-500 font-bold">Error {{ error.statusCode }}</h2>
-
-      <p class="mt-4 text-3xl">{{ error.statusMessage }}</p>
-      <div class="mt-5 flex">
-        <nuxt-link
-          to="/"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-          Return Home Page
-        </nuxt-link>
       </div>
     </div>
   </section>
