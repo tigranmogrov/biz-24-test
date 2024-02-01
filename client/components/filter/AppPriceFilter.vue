@@ -49,23 +49,13 @@ const isCorrectValue = computed(() => validatePrices(currentPrice, props.price))
 <template>
   <div class="w-full px-3 py-2">
     <div class="flex items-center gap-1">
-      <label for="number-input" class="block text-sm font-medium text-gray-900 dark:text-white">
+      <label v-for="type in ['min', 'max']" :key="type" for="number-input" class="block text-sm font-medium text-gray-900 dark:text-white">
         <input
+          v-model="currentPrice[type]"
           :style="[!isCorrectValue && { borderColor: 'red' }]"
           type="text"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          :value="currentPrice.min"
-          name="min"
-          @input="setValue" />
-      </label>
-      <span>-</span>
-      <label for="number-input" class="block text-sm font-medium text-gray-900 dark:text-white">
-        <input
-          :style="[!isCorrectValue && { borderColor: 'red' }]"
-          :value="currentPrice.max"
-          type="text"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          name="max"
+          :name="type"
           @input="setValue" />
       </label>
 
