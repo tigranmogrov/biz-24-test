@@ -12,7 +12,7 @@ const filters = computed(() => productStore.getProductFilters);
   <div v-if="filters">
     <ul class="flex flex-col gap-6">
       <li>
-        <h3 class="mb-4 font-semibold">Categories</h3>
+        <h3 class="mb-4 font-semibold">Price</h3>
         <div class="flex flex-col gap-1 border border-gray-400 rounded divide-y py-2">
           <app-price-filter :price="filters.price" />
         </div>
